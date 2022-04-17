@@ -1,9 +1,16 @@
 package com.myyhhuang.mywebviewapp.ui.dashboard;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,13 +35,28 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//        final TextView textView = binding.textDashboard;
+//        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
+
+        final EditText urlText2 = (EditText) binding.urlText2;
+        urlText2.setTextColor(Color.YELLOW);
+        urlText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                System.out.println("urlText2: " + urlText2.getText().toString());
+                final WebView webView2 = binding.webview2;
+                webView2.getSettings().setJavaScriptEnabled(true);
+                webView2.setWebViewClient(new WebViewClient());
+                webView2.loadUrl(urlText2.getText().toString());
+                return true;
             }
         });
+
         return root;
     }
 

@@ -1,5 +1,6 @@
 package com.myyhhuang.mywebviewapp.ui.home;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ public class HomeFragment extends Fragment {
 
         // WebView
         final WebView webView = binding.webview;
+        webView.setBackgroundColor(Color.YELLOW);
 //        String customHtml = "<html><body><h1>Welcome to Tutlane</h1>" +
 //                "<h2>Welcome to Tutlane</h2><h3>Welcome to Tutlane</h3>" +
 //                "<p>It's a Static Web HTML Content.</p>" +
