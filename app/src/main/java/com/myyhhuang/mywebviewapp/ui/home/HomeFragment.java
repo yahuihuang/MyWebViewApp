@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,13 +29,12 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        final WebView webView = binding.webview;
+        String customHtml = "<html><body><h1>Welcome to Tutlane</h1>" +
+                "<h2>Welcome to Tutlane</h2><h3>Welcome to Tutlane</h3>" +
+                "<p>It's a Static Web HTML Content.</p>" +
+                "</body></html>";
+        webView.loadData(customHtml, "text/html", "UTF-8");
         return root;
     }
 

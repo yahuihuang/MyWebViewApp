@@ -1,10 +1,7 @@
 package com.myyhhuang.mywebviewapp;
 
 import android.os.Bundle;
-import android.webkit.WebView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
