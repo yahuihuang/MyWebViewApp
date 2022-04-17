@@ -29,12 +29,16 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        // WebView
         final WebView webView = binding.webview;
-        String customHtml = "<html><body><h1>Welcome to Tutlane</h1>" +
-                "<h2>Welcome to Tutlane</h2><h3>Welcome to Tutlane</h3>" +
-                "<p>It's a Static Web HTML Content.</p>" +
-                "</body></html>";
-        webView.loadData(customHtml, "text/html", "UTF-8");
+//        String customHtml = "<html><body><h1>Welcome to Tutlane</h1>" +
+//                "<h2>Welcome to Tutlane</h2><h3>Welcome to Tutlane</h3>" +
+//                "<p>It's a Static Web HTML Content.</p>" +
+//                "</body></html>";
+//        webView.loadData(customHtml, "text/html", "UTF-8");
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("https://tw.yahoo.com");
+
         return root;
     }
 
