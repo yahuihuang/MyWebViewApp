@@ -44,7 +44,7 @@ public class DashboardFragment extends Fragment {
 //        });
 
         final EditText urlText2 = (EditText) binding.urlText2;
-        urlText2.setTextColor(Color.YELLOW);
+        urlText2.setTextColor(Color.BLUE);
         urlText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
