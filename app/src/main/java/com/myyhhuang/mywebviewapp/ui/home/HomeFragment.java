@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
 //                "</body></html>";
 //        webView.loadData(customHtml, "text/html", "UTF-8");
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://tw.yahoo.com");
+        webView.loadUrl("http://flow.tssco.com.tw:8080/");
 
         return root;
     }
