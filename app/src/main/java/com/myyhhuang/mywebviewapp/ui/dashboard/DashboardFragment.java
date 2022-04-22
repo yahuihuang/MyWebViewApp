@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,21 +45,38 @@ public class DashboardFragment extends Fragment {
 //            }
 //        });
 
+        // 輸入網址列
         final EditText urlText2 = (EditText) binding.urlText2;
         urlText2.setTextColor(Color.BLUE);
         urlText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                System.out.println("urlText2: " + urlText2.getText().toString());
-                final WebView webView2 = binding.webview2;
-                webView2.getSettings().setJavaScriptEnabled(true);
-                webView2.setWebViewClient(new WebViewClient());
-                webView2.loadUrl(urlText2.getText().toString());
+                gotoLoadUrl();
                 return true;
             }
         });
 
+        // 查詢Button
+        final Button qryUrlBtn = (Button) binding.button;
+        qryUrlBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DashboardFragment.this.getContext(),
+                        "網址", Toast.LENGTH_SHORT).show();
+                gotoLoadUrl();
+            }
+        });
+
         return root;
+    }
+
+    void gotoLoadUrl() {
+        final EditText urlText2 = (EditText) binding.urlText2;
+        System.out.println("urlText2: " + urlText2.getText().toString());
+        final WebView webView2 = binding.webview2;
+        webView2.getSettings().setJavaScriptEnabled(true);
+        webView2.setWebViewClient(new WebViewClient());
+        webView2.loadUrl(urlText2.getText().toString());
     }
 
     @Override
