@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebChromeClient;
@@ -27,6 +28,8 @@ import com.github.lzyzsd.jsbridge.DefaultHandler;
 import com.myyhhuang.mywebviewapp.MainActivity;
 import com.myyhhuang.mywebviewapp.R;
 import com.myyhhuang.mywebviewapp.databinding.FragmentNotificationsBinding;
+
+import java.util.Objects;
 
 public class NotificationsFragment extends Fragment implements View.OnClickListener {
 
@@ -59,10 +62,12 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
 //            }
 //        });
 
+        // Soft Keyboard overlaps Edit text field.
+        Objects.requireNonNull(getActivity()).getWindow()
+                .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
         initWebView();
-
         registerHandlers();
-
         initViews();
 
         return root;
