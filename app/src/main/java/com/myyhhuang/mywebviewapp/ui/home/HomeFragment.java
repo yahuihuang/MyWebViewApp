@@ -39,6 +39,8 @@ public class HomeFragment extends Fragment {
 //                "</body></html>";
 //        webView.loadData(customHtml, "text/html", "UTF-8");
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setDatabaseEnabled(true);
         webView.loadUrl("https://tw.yahoo.com");
 
         return root;

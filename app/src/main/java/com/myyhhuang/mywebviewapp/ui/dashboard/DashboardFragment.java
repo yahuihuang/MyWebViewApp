@@ -81,6 +81,8 @@ public class DashboardFragment extends Fragment {
         webSettings.setBuiltInZoomControls(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setLoadWithOverviewMode(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setDatabaseEnabled(true);
 
 //        webView2.setWebViewClient(new WebViewClient());
 
