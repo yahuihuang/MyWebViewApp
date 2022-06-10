@@ -1,22 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.NotificationsFragment">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <com.github.lzyzsd.jsbridge.BridgeWebView
+        android:id="@+id/main_wv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="360dp">
+    </com.github.lzyzsd.jsbridge.BridgeWebView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:padding="10dp"
+        android:paddingStart="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="原生安卓界面："
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="4dp"/>
+        <Button
+            android:id="@+id/btn_init"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="调用 H5 默认接收方法"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp">
+            <TextView
+                android:textSize="18dp"
+                android:layout_marginRight="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User 值："/>
+            <TextView
+                android:id="@+id/tv_user"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="2dp">
+            <Button
+                android:id="@+id/btn_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修改 H5 界面 name 值" />
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="180dp"
+                android:layout_marginLeft="20dp"
+                android:hint="请输入新的name值"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+            <Button
+                android:id="@+id/btn_cookie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置 Cookie token 值"/>
+            <EditText
+                android:id="@+id/edit_cookie"
+                android:layout_width="180dp"
+                android:layout_marginLeft="20dp"
+                android:hint="请输入新的 token 值"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
